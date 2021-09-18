@@ -4,7 +4,7 @@
 // create a function On^2
 function same(arr1, arr2) {
     if(arr1.length !== arr2.length) return false;
-    // loop throuth the first array
+    // loop through the first array
     for(let i = 0; i < arr1.length; i++) {
         // locate its index in the second array
         // for each item, look for the corresponding square
@@ -19,7 +19,7 @@ function same(arr1, arr2) {
 
 // better O(n)
 // loop through each array once and update its frequency
-// loop through first array and check for its quare in the second array
+// loop through first array and check if its square exist in the second array
 // chaek for freq match
 function same(arr1, arr2) {
     if(arr1.length !== arr2.length) return false;
