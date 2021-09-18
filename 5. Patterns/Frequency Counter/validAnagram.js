@@ -2,8 +2,8 @@
 
  // Challange 2
  // Write a functon to determine if the second string is an anagram of the first
- // An anagram is a word or phrase, or name formed by rearranging the letters of anothe
- // such as cinema fromed from iceman
+ // An anagram is a word or phrase, or name formed by rearranging the letters of another
+ // such as cinema formed from iceman
 
  function validAnagram(first, second) {
     if(first.length !== second.length) return false;
