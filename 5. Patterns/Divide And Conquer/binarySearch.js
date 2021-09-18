@@ -3,7 +3,6 @@
 
 
 function binarySearch(array, val) {
-    debugger
     let min = 0,
         max = array.length -1;
     
