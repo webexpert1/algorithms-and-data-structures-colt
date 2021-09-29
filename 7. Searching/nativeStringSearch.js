@@ -7,18 +7,19 @@
 //  Return count
 
 function nativeStringSearch(longStr, shortStr) {
-    let match = 0;
+    let count = 0;
     for (let i = 0; i < longStr.length; i++) {
-        // const element = array[i];
-
         for (let j = 0; j < shortStr.length; j++) {
-            // const element = array[j];
-            if(shortStr[j] !== longStr[i+j]) continue;
+            if (shortStr[j] !== longStr[i+j]) {
+                break;
+            };
+           if(j === shortStr.length - 1) ++count;
         }
-        ++match;
+       
         
     }
-    return match;
+     return count;
 }
 
-console.log(nativeStringSearch('JOHN SAID AHA BEFORE AHA BECAME POPULAR', 'AHA'))
+// JOHN SAID AHA BEFORE AHA BECAME POPULAR
+console.log(nativeStringSearch('lorie loled lol', 'lol'))
