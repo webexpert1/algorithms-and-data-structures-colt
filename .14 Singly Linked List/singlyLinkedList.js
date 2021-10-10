@@ -167,5 +167,4 @@ list.push('hi')
 list.push('there')
 list.push('Ric');
 list.unshift('!')
-// list.get(2)
-console.log(list.remove(2, 'Ric'))
+list.remove(2, 'Ric')
