@@ -32,6 +32,27 @@
 // set the next property of the newNode to the current head
 // set the head to be the newNode
 
+// get - this function returns a node at a given index
+// if the index is less than or equal than half the length of the list
+//      start the loop from the head and move towards the middle of the list
+//      return the node once found
+// if the index is greater than half the length of the list
+//      start the loop from the head and move towards the middle of the list
+//      return the node once found
+
+// set - this function updates the value in a given index
+// use the get function to get the node at the specified index
+//   if get returns a valid node, set the valie of that node to be the value passed to the funcion
+//   return true
+// Otherwise, return false
+
+// insert - this function inserts a node at a given index
+// if the index is zero, unshift
+// if the index is same as length, push
+// use the get method to access the index-1
+// set the next and prev properties on the correct nodes to link everything together
+// increment the length, return true
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -60,7 +81,8 @@ class DoublyLinkedList {
     push(val) {
         let newNode = new Node(val);
         if(!this.head) {
-            this.head = this.tail = newNode;
+            this.head = newNode;
+            this.tail = this.head;
         } else {
             this.tail.next = newNode;
             newNode.prev = this.tail;
@@ -111,10 +133,54 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+    get(index) {
+        if(index < 0 || index > this.length) return null;
+        let counter, current;
+        if(index <= this.length/2) {
+            counter = 0, current = this.head;
+            while(index !== counter) {
+                counter++;
+                current = current.next;
+            }
+        }
+        else {
+            counter = this.length -1 , current = this.tail;
+            while(index !== counter) {
+                counter++;
+                current = current.prev;
+            }
+        }
+        return current;
+    }
+    set(index, val) {
+        let found = this.get(index);
+        if(found !== null) {
+            found.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, val) {
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) return !!this.unshift(val);
+        if(index === this.length) return !!this.push(val);
+
+        let newNode = new Node(val);
+        let prevNode = this.get(index-1)
+        let temp = prevNode.next;
+
+        prevNode.next = newNode;
+        newNode.prev = prevNode;
+        newNode.next = temp;
+        this.length++
+
+        return true;
+    }
 }
 
 let DL = new DoublyLinkedList();
-DL.push('Hi')
-DL.push('Ric')
-DL.unshift('!')
+DL.push('100')
+DL.push('300')
+DL.push('400')
+DL.insert(1, '200')
 
