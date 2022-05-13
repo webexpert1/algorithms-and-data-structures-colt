@@ -25,7 +25,6 @@ function twoSum(array, target) {
             mapResult.set(array[i], i)
         }
     }
-    console.log(mapResult)
 }
 
 console.log(twoSum([2, 7, 11, 15], 9))
