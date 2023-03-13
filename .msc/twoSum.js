@@ -21,10 +21,32 @@ function twoSum(array, target) {
         if(mapResult.has(complement)) {
             return [mapResult.get(complement), i]
           
-        } else {
+        } else {    
             mapResult.set(array[i], i)
         }
     }
+    console.log(mapResult)
+    return [-1,-1]
 }
 
-console.log(twoSum([2, 7, 11, 15], 9))
+// console.log(twoSum([2, 10, 11, 7], 9))
+
+var lengthOfLongestSubstring = function (s) {
+    let res = 0;
+    let set = new Set();
+    let i = 0;
+    let j = 0;
+    while (i < s.length && j < s.length) {
+      if (!set.has(s[j])) {
+        set.add(s[j]);
+        j++;
+        if (j - i > res) res = j - i;
+      } else {
+        set.delete(s[i]);
+        i++;
+      }
+    }
+    return res;
+  };
+
+  console.log(lengthOfLongestSubstring('pwwkew'))
